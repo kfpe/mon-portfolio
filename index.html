@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <title>Site-Portfolio</title>
+  </head>
+  <body>
+    <nav>
+      <h1><i class="fa-sharp fa-solid fa-sparkles"></i>K-F-P-E</h1>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#competence">Compétences</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li id="dark-light" onclick="ChangeDarkMode()">Dark mode</li>
+      </ul>
+    </nav>
+    <header id="accueil">
+      <div class="header-left">
+        <small
+          ><i class="fa-sharp fa-solid fa-location-dot"></i
+          >Yaoundé-Cameroun</small
+        >
+        <h1>
+          HELLO, <br />
+          Welcome Here...
+        </h1>
+        <p>
+          Bonjour et bienvenue dans mon portfolio ! Je m'appelle
+          <span> PATRICK FOKAM</span> et je suis actuellement étudiant en
+          deuxième année de génie logiciel, avec une spécialisation dans le
+          développement d'applications. Passionné par la technologie et
+          l'innovation, je m'efforce de créer des solutions logicielles qui
+          répondent aux besoins des utilisateurs tout en étant à la fois
+          fonctionnelles et esthétiques.
+        </p>
+        <button>En savoir plus</button>
+      </div>
+
+      <div class="header-right">
+        <img
+          src="./WhatsApp Image 2024-11-03 à 22.30.17_0eb4f14f.jpg"
+          alt="profil image"
+        />
+      </div>
+    </header>
+    <section id="competence">
+      <div class="about">
+        <h4>MES COMPÉTENCES</h4>
+        <div class="comp">
+          <img
+            class="signature"
+            src="./240_F_184479259_2TecKTj6FSwM3j06SlPdKNyP7pa7wVQp.jpg"
+            alt="signature"
+          />
+          <p>
+            Au cours de mes études, j'ai acquis des compétences solides en
+            programmation, notamment en langages tels que<span id="competences"
+              >Html/Css, Php, JavaScript, Java, Visual Basic.</span
+            >
+            <br />J'ai également une expérience pratique avec des frameworks
+            modernes comme Bootstrap et Laravel, ce qui me permet de développer
+            des applications web performantes.
+            <br />
+            <br />
+            Je suis toujours à la recherche de nouvelles opportunités
+            d'apprentissage et de collaboration. N'hésitez pas à me contacter si
+            vous souhaitez discuter de projets ou si vous avez des questions sur
+            mon travail !<br />
+            <button>Me contacter</button>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="images" id="projets">
+      <h4>PROJETS</h4>
+      <h2>projets réalisés</h2>
+      <div class="image-card">
+        <div class="image-left">
+          <img src="./Capture d’écran 2024-11-03 140845.png" />
+        </div>
+        <div class="image-right">
+          <h2>Application de gestion des étudiants en VB</h2>
+          <p>
+            J'ai réalisé a l'aide du langage VB, une petite application de
+            gestion des etudiants d'ans une université.<br />cette application
+            permettais d'enrégistrer un étudiant, ainsi aue ses notes en
+            plusieus matieres, enregistrer des matieres, effectuer la
+            comptabilisation des notes de chaque étudiant et afficher sa
+            moyenne.
+          </p>
+        </div>
+      </div>
+      <div class="image-card">
+        <div class="image-left">
+          <img src="./Capture d’écran 2024-11-03 141325.png" />
+        </div>
+        <div class="image-right">
+          <h2>Application de gestion des assiduités en VBA-Excel</h2>
+          <p>
+            En VBA-Excel, j'ai travaillé sur un projet de gestion des
+            assiduités<br />
+            Cette application consiste a enregistrer les étudiants dans une base
+            de donnée excel, avec leur images puis pour chaque cour, le marquer
+            present ou absent en fonstion du cas. ensuite, il etait question de
+            générer un fichier pdf contenant la liste des présences et une
+            comptabilisation du nombre de présent de le nombre d'absent.
+          </p>
+        </div>
+      </div>
+      <h1>Projets en cours</h1>
+      <div class="image-card">
+        <div class="image-left">
+          <img src="./Capture d’écran 2024-11-03 143616.png" />
+        </div>
+        <div class="image-right">
+          <h2>Application de gestion des dépots de boisson avec Access</h2>
+          <p>
+            Il est question de de créer une application de gestion d'un dépot de
+            boisson.<br />
+            L’objectif principale de notre projet étant de faciliter et
+            optimiser la gestion des dépôts en permettant de D’ajouter de
+            supprimer ou de modifier les produits et les fournisseurs Gérer les
+            catégories de produits Gérer les marques de produits et les
+            fournisseurs, Gérer les prix de vente, Gérer les quantités en stocks
+            ....
+          </p>
+        </div>
+      </div>
+      <div class="image-card">
+        <div class="image-left">
+          <img src="./Capture d'écran 2024-10-07 153732.png" />
+        </div>
+        <div class="image-right">
+          <h2>Application de gestion des demandes de stage en ligne en PHP</h2>
+          <p>
+            Il est question de de créer une plate-forme de gestion des demandes
+            de stage en ligne en PHP.<br />
+            L'objectif principal de ce projet est d'améliorer l'efficacité, la
+            transparence et la traçabilité du processus de demande de stage tant
+            du côté des demandeurs que des organismes d'accueil.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h1>CONTACTEZ MOI</h1>
+      <div class="contact">
+        <div class="contact-info">
+          <img
+            src="./WhatsApp Image 2024-11-03 à 09.15.54_e12bbbca.jpg"
+            alt="Kaya Lorenz"
+            class="profile-image"
+          />
+          <div class="info">
+            <p><strong>Nom :</strong> kemgne fokam patrick</p>
+            <p><strong>Email :</strong> emeryfokam@gmail.com</p>
+            <p><strong>Téléphone :</strong> +237 690376580</p>
+            <p>
+              <strong>Curriculum :</strong>
+              <a href="#">moncv.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>
+        K-F-P-E<br />
+        &copy; Patrick fokam 2024
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
