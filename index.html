@@ -1,183 +1,357 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <title>Site-Portfolio</title>
-  </head>
-  <body>
-    <nav>
-      <h1><i class="fa-sharp fa-solid fa-sparkles"></i>K-F-P-E</h1>
-      <div class="menu-icon" onclick="toggleMenu()">☰</div>
-      <ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#competence">Compétences</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li id="dark-light" onclick="ChangeDarkMode()">Dark mode</li>
+<html lang="fr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Patrick Fokam</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <!-- Style perso -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#accueil">
+        <i class="fa-solid fa-sparkles me-2"></i>K-F-P-E
+      </a>
+
+      <!-- Bouton Offcanvas (mobile) -->
+      <button class="btn btn-success d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Liens (desktop) -->
+      <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex">
+        <ul class="navbar-nav align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#accueil"><i class="fa-solid fa-house me-1"></i>Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#competences"><i class="fa-solid fa-code me-1"></i>Compétences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projets"><i class="fa-solid fa-diagram-project me-1"></i>Projets</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="fa-solid fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item">
+            <button id="themeToggle" class="btn btn-outline-light btn-sm ms-lg-2">
+              <i class="fa-regular fa-moon me-1"></i><span>Dark</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- OFFCANVAS (menu mobile) -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title"><i class="fa-solid fa-sparkles me-2 text-success"></i>Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav fs-5">
+        <li class="nav-item mb-2"><a class="nav-link" data-bs-dismiss="offcanvas" href="#accueil"><i class="fa-solid fa-house me-2"></i>Accueil</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" data-bs-dismiss="offcanvas" href="#competences"><i class="fa-solid fa-code me-2"></i>Compétences</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" data-bs-dismiss="offcanvas" href="#projets"><i class="fa-solid fa-diagram-project me-2"></i>Projets</a></li>
+        <li class="nav-item mb-2"><a class="nav-link" data-bs-dismiss="offcanvas" href="#contact"><i class="fa-solid fa-envelope me-2"></i>Contact</a></li>
       </ul>
-    </nav>
-    <header id="accueil">
-      <div class="header-left">
-        <small
-          ><i class="fa-sharp fa-solid fa-location-dot"></i
-          >Yaoundé-Cameroun</small
-        >
-        <h1>
-          HELLO, <br />
-          Welcome Here...
-        </h1>
-        <p>
-          Bonjour et bienvenue dans mon portfolio ! Je m'appelle
-          <span> PATRICK FOKAM</span> et je suis actuellement étudiant en
-          deuxième année de génie logiciel, avec une spécialisation dans le
-          développement d'applications. Passionné par la technologie et
-          l'innovation, je m'efforce de créer des solutions logicielles qui
-          répondent aux besoins des utilisateurs tout en étant à la fois
-          fonctionnelles et esthétiques.
-        </p>
-        <button>En savoir plus</button>
+      <hr>
+      <button id="themeToggleMobile" class="btn btn-outline-secondary w-100">
+        <i class="fa-regular fa-moon me-2"></i><span>Activer Dark mode</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="accueil" class="section-hero d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <span class="badge bg-success-subtle text-success-emphasis mb-3">
+            <i class="fa-solid fa-location-dot me-1"></i> Yaoundé – Cameroun
+          </span>
+          <h1 class="display-5 fw-bold mb-3">HELLO,<br>Welcome Here…</h1>
+          <p class="lead mb-4">
+            Je suis <strong class="text-primary">PATRICK FOKAM</strong>, étudiant en 3ᵉ année de génie logiciel.
+            Je conçois des applications <em>utiles, performantes et propres</em>.
+          </p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="#projets" class="btn btn-success rounded-pill px-4"><i class="fa-solid fa-rocket me-2"></i>Voir mes projets</a>
+            <a href="#contact" class="btn btn-outline-success rounded-pill px-4"><i class="fa-solid fa-paper-plane me-2"></i>Me contacter</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="./WhatsApp Image 2024-11-03 à 22.30.17_0eb4f14f.jpg" class="rounded-circle img-fluid shadow-lg hero-img" alt="Photo de profil">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences" class="section-alt-1 py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold"><i class="fa-solid fa-laptop-code me-2 text-primary"></i>Mes compétences</h2>
+        <p class="text-muted mb-0">Stack actuelle : <span id="competencesDynamic" class="fw-semibold text-primary"></span></p>
       </div>
 
-      <div class="header-right">
-        <img
-          src="./WhatsApp Image 2024-11-03 à 22.30.17_0eb4f14f.jpg"
-          alt="profil image"
-        />
-      </div>
-    </header>
-    <section id="competence">
-      <div class="about">
-        <h4>MES COMPÉTENCES</h4>
-        <div class="comp">
-          <img
-            class="signature"
-            src="./240_F_184479259_2TecKTj6FSwM3j06SlPdKNyP7pa7wVQp.jpg"
-            alt="signature"
-          />
-          <p>
-            Au cours de mes études, j'ai acquis des compétences solides en
-            programmation, notamment en langages tels que<span id="competences"
-              >Html/Css, Php, JavaScript, Java, Visual Basic.</span
-            >
-            <br />J'ai également une expérience pratique avec des frameworks
-            modernes comme Bootstrap et Laravel, ce qui me permet de développer
-            des applications web performantes.
-            <br />
-            <br />
-            Je suis toujours à la recherche de nouvelles opportunités
-            d'apprentissage et de collaboration. N'hésitez pas à me contacter si
-            vous souhaitez discuter de projets ou si vous avez des questions sur
-            mon travail !<br />
-            <button>Me contacter</button>
-          </p>
+      <div class="row g-4">
+        <!-- Cartes de compétences -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-html5 fa-2x mb-2 text-danger"></i>
+            <h6 class="mb-1">HTML5 & CSS3</h6>
+            <small class="text-muted">Mise en page, responsive</small>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="images" id="projets">
-      <h4>PROJETS</h4>
-      <h2>projets réalisés</h2>
-      <div class="image-card">
-        <div class="image-left">
-          <img src="./Capture d’écran 2024-11-03 140845.png" />
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-bootstrap fa-2x mb-2 text-purple"></i>
+            <h6 class="mb-1">Bootstrap 5</h6>
+            <small class="text-muted">Grilles, UI, utilitaires</small>
+          </div>
         </div>
-        <div class="image-right">
-          <h2>Application de gestion des étudiants en VB</h2>
-          <p>
-            J'ai réalisé a l'aide du langage VB, une petite application de
-            gestion des etudiants d'ans une université.<br />cette application
-            permettais d'enrégistrer un étudiant, ainsi aue ses notes en
-            plusieus matieres, enregistrer des matieres, effectuer la
-            comptabilisation des notes de chaque étudiant et afficher sa
-            moyenne.
-          </p>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-square-js fa-2x mb-2 text-warning"></i>
+            <h6 class="mb-1">JavaScript</h6>
+            <small class="text-muted">DOM, composants, logique</small>
+          </div>
         </div>
-      </div>
-      <div class="image-card">
-        <div class="image-left">
-          <img src="./Capture d’écran 2024-11-03 141325.png" />
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-php fa-2x mb-2 text-primary"></i>
+            <h6 class="mb-1">PHP</h6>
+            <small class="text-muted">APIs & backend</small>
+          </div>
         </div>
-        <div class="image-right">
-          <h2>Application de gestion des assiduités en VBA-Excel</h2>
-          <p>
-            En VBA-Excel, j'ai travaillé sur un projet de gestion des
-            assiduités<br />
-            Cette application consiste a enregistrer les étudiants dans une base
-            de donnée excel, avec leur images puis pour chaque cour, le marquer
-            present ou absent en fonstion du cas. ensuite, il etait question de
-            générer un fichier pdf contenant la liste des présences et une
-            comptabilisation du nombre de présent de le nombre d'absent.
-          </p>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-laravel fa-2x mb-2 text-danger"></i>
+            <h6 class="mb-1">Laravel 10</h6>
+            <small class="text-muted">MVC, Eloquent, Blade/API</small>
+          </div>
         </div>
-      </div>
-      <h1>Projets en cours</h1>
-      <div class="image-card">
-        <div class="image-left">
-          <img src="./Capture d’écran 2024-11-03 143616.png" />
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-java fa-2x mb-2"></i>
+            <h6 class="mb-1">Java</h6>
+            <small class="text-muted">POO, algorithmes</small>
+          </div>
         </div>
-        <div class="image-right">
-          <h2>Application de gestion des dépots de boisson avec Access</h2>
-          <p>
-            Il est question de de créer une application de gestion d'un dépot de
-            boisson.<br />
-            L’objectif principale de notre projet étant de faciliter et
-            optimiser la gestion des dépôts en permettant de D’ajouter de
-            supprimer ou de modifier les produits et les fournisseurs Gérer les
-            catégories de produits Gérer les marques de produits et les
-            fournisseurs, Gérer les prix de vente, Gérer les quantités en stocks
-            ....
-          </p>
-        </div>
-      </div>
-      <div class="image-card">
-        <div class="image-left">
-          <img src="./Capture d'écran 2024-10-07 153732.png" />
-        </div>
-        <div class="image-right">
-          <h2>Application de gestion des demandes de stage en ligne en PHP</h2>
-          <p>
-            Il est question de de créer une plate-forme de gestion des demandes
-            de stage en ligne en PHP.<br />
-            L'objectif principal de ce projet est d'améliorer l'efficacité, la
-            transparence et la traçabilité du processus de demande de stage tant
-            du côté des demandeurs que des organismes d'accueil.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h1>CONTACTEZ MOI</h1>
-      <div class="contact">
-        <div class="contact-info">
-          <img
-            src="./WhatsApp Image 2024-11-03 à 09.15.54_e12bbbca.jpg"
-            alt="Kaya Lorenz"
-            class="profile-image"
-          />
-          <div class="info">
-            <p><strong>Nom :</strong> kemgne fokam patrick</p>
-            <p><strong>Email :</strong> emeryfokam@gmail.com</p>
-            <p><strong>Téléphone :</strong> +237 690376580</p>
-            <p>
-              <strong>Curriculum :</strong>
-              <a href="#">moncv.com</a>
-            </p>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="skill-card text-center p-4 rounded-4 h-100">
+            <i class="fa-brands fa-microsoft fa-2x mb-2"></i>
+            <h6 class="mb-1">VBA / VB</h6>
+            <small class="text-muted">Automatisation, desktop</small>
           </div>
         </div>
       </div>
-    </section>
-    <footer>
-      <p>
-        K-F-P-E<br />
-        &copy; Patrick fokam 2024
-      </p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" class="section-alt-2 py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold"><i class="fa-solid fa-diagram-project me-2 text-success"></i>Mes projets</h2>
+      </div>
+
+      <!-- Réalisés -->
+      <h4 class="mb-3"><i class="fa-solid fa-check-circle me-2 text-success"></i>Projets réalisés</h4>
+      <div class="row g-4 mb-5">
+        <!-- Carte projet 1 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm border-0 overflow-hidden rounded-4">
+            <img src="./Capture d’écran 2024-11-03 140845.png" class="card-img-top project-img" alt="Gestion des étudiants en VB">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2">
+                <i class="fa-solid fa-user-graduate text-primary"></i>
+                Application de gestion des étudiants (VB)
+              </h5>
+              <p class="card-text">
+                En VB : gestion des étudiants, des matières, enregistrement des notes et calcul des moyennes.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light"><i class="fa-brands fa-microsoft me-1"></i>VB</span>
+                <span class="badge text-bg-light"><i class="fa-solid fa-database me-1"></i>Local DB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte projet 2 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm border-0 overflow-hidden rounded-4">
+            <img src="./Capture d’écran 2024-11-03 141325.png" class="card-img-top project-img" alt="Assiduités VBA-Excel">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2">
+                <i class="fa-solid fa-clipboard-check text-primary"></i>
+                Gestion des assiduités (VBA – Excel)
+              </h5>
+              <p class="card-text">
+                Marquage présence/absence, base Excel avec photos, génération PDF de la liste et statistiques.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light"><i class="fa-brands fa-microsoft me-1"></i>VBA</span>
+                <span class="badge text-bg-light"><i class="fa-solid fa-file-pdf me-1"></i>PDF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte projet 3 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm border-0 overflow-hidden rounded-4">
+            <img src="./Capture d’écran 2024-11-03 143616.png" class="card-img-top project-img" alt="Dépôt de boisson Access">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2">
+                <i class="fa-solid fa-wine-bottle text-primary"></i>
+                Gestion d’un dépôt de boisson (Access)
+              </h5>
+              <p class="card-text">
+                Produits, catégories, marques, fournisseurs, prix de vente, quantités en stock.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light"><i class="fa-solid fa-database me-1"></i>Access</span>
+                <span class="badge text-bg-light"><i class="fa-solid fa-boxes-stacked me-1"></i>Stocks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte projet 4 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm border-0 overflow-hidden rounded-4">
+            <img src="./Capture d'écran 2024-10-07 153732.png" class="card-img-top project-img" alt="Demandes de stage en ligne">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2">
+                <i class="fa-solid fa-briefcase text-primary"></i>
+                Plateforme de demandes de stage (PHP)
+              </h5>
+              <p class="card-text">
+                Gestion en ligne des demandes, suivi et traçabilité pour candidats et organismes d’accueil.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light"><i class="fa-brands fa-php me-1"></i>PHP</span>
+                <span class="badge text-bg-light"><i class="fa-solid fa-globe me-1"></i>Web</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- En cours -->
+      <h4 class="mb-3"><i class="fa-solid fa-hourglass-half me-2 text-warning"></i>Projet en cours</h4>
+      <div class="row g-4">
+        <div class="col-12">
+          <div class="card h-100 shadow-sm border-0 overflow-hidden rounded-4">
+            <div class="position-relative">
+              <img src="./auto.png" class="card-img-top project-img" alt="Application de gestion d’auto-école (Laravel 10)">
+              <span class="position-absolute top-0 start-0 m-3 badge text-bg-warning">
+                <i class="fa-solid fa-circle-play me-1"></i>En cours
+              </span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center gap-2">
+                <i class="fa-solid fa-car-side text-primary"></i>
+                Application de gestion d’une auto-école (Laravel 10 + JS + Bootstrap)
+              </h5>
+              <p class="card-text mb-3">
+                Inscriptions, suivi des élèves, planning leçons de conduite, examens, gestion des paiements, tableaux de bord.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge text-bg-light"><i class="fa-brands fa-laravel me-1"></i>Laravel 10</span>
+                <span class="badge text-bg-light"><i class="fa-brands fa-square-js me-1"></i>JavaScript</span>
+                <span class="badge text-bg-light"><i class="fa-brands fa-bootstrap me-1"></i>Bootstrap 5</span>
+                <span class="badge text-bg-light"><i class="fa-solid fa-database me-1"></i>MySQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT (Formulaire uniquement) -->
+  <section id="contact" class="section-alt-3 py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold"><i class="fa-solid fa-paper-plane me-2 text-danger"></i>Contactez-moi</h2>
+        <p class="text-muted mb-0">Laissez-moi un message et je vous réponds rapidement.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <form class="card shadow-sm border-0 rounded-4 p-4 needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label"><i class="fa-solid fa-user me-1"></i>Nom complet</label>
+                <input type="text" class="form-control" placeholder="Votre nom" required>
+                <div class="invalid-feedback">Votre nom est requis.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label"><i class="fa-solid fa-at me-1"></i>Email</label>
+                <input type="email" class="form-control" placeholder="nom@exemple.com" required>
+                <div class="invalid-feedback">Email invalide.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label"><i class="fa-solid fa-heading me-1"></i>Objet</label>
+                <input type="text" class="form-control" placeholder="Sujet de votre message" required>
+                <div class="invalid-feedback">Objet requis.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label"><i class="fa-solid fa-message me-1"></i>Message</label>
+                <textarea rows="5" class="form-control" placeholder="Votre message..." required></textarea>
+                <div class="invalid-feedback">Message requis.</div>
+              </div>
+            </div>
+            <div class="text-end mt-4">
+              <button type="submit" class="btn btn-danger rounded-pill px-4">
+                <i class="fa-solid fa-paper-plane me-2"></i>Envoyer
+              </button>
+            </div>
+          </form>
+          <small class="d-block text-center text-muted mt-3">
+            *Vous pouvez relier ce formulaire à Formspree, un endpoint Laravel, etc.
+          </small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (avec tes infos) -->
+  <footer class="footer-main py-4">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-id-card fa-2x me-3 text-success"></i>
+            <div>
+              <div class="fw-bold">Kemgne Fokam Patrick</div>
+              <div><i class="fa-solid fa-envelope me-1"></i> <a href="mailto:emeryfokam@gmail.com">emeryfokam@gmail.com</a></div>
+              <div><i class="fa-solid fa-phone me-1"></i> +237 690 37 65 80</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <div class="d-inline-flex gap-3 fs-4">
+            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div class="text-muted mt-2">&copy; <span id="year"></span> – K-F-P-E | Portfolio</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>

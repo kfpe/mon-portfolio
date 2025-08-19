@@ -1,57 +1,70 @@
+// --- DARK MODE (Bootstrap 5.3 data-bs-theme) ---
+const htmlEl = document.documentElement;
+const btnDesktop = document.getElementById('themeToggle');
+const btnMobile  = document.getElementById('themeToggleMobile');
 
-let DarkMode = false; // Déplace la déclaration ici
-
-function ChangeDarkMode() {
-    if (DarkMode) {
-        // Mode clair
-        document.documentElement.style.setProperty("--text-color", "black");
-        document.documentElement.style.setProperty("--background-color", "white");
-        document.getElementById("dark-light").innerHTML = "Dark mode";
-    } else {
-        // Mode sombre
-        document.documentElement.style.setProperty("--text-color", "white");
-        document.documentElement.style.setProperty("--background-color", "black");
-        document.getElementById("dark-light").innerHTML = "Light mode";
-    }
-    DarkMode = !DarkMode; // Inverse l'état
+function setTheme(mode) {
+  htmlEl.setAttribute('data-bs-theme', mode);
+  localStorage.setItem('theme', mode);
+  // Met à jour les libellés/icônes
+  const toDark = mode === 'light';
+  if (btnDesktop) {
+    btnDesktop.innerHTML = toDark
+      ? '<i class="fa-regular fa-moon me-1"></i><span>Dark</span>'
+      : '<i class="fa-regular fa-sun me-1"></i><span>Light</span>';
+  }
+  if (btnMobile) {
+    btnMobile.innerHTML = toDark
+      ? '<i class="fa-regular fa-moon me-2"></i><span>Activer Dark mode</span>'
+      : '<i class="fa-regular fa-sun me-2"></i><span>Désactiver Dark mode</span>';
+  }
 }
 
+// Appliquer le thème initial
+setTheme(localStorage.getItem('theme') || 'light');
 
-
-function toggleMenu() {
-    const navUl = document.querySelector('nav ul');
-    navUl.classList.toggle('active');
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    const competencesElement = document.getElementById("competences");
-    const competences = ["Html/Css", "Php", "JavaScript", "Java", "Visual Basic"];
-    let index = 0;
-    let charIndex = 0;
-    let typing = true;
-
-    function afficherCompétence() {
-        if (typing) {
-            if (charIndex < competences[index].length) {
-                competencesElement.textContent += competences[index].charAt(charIndex);
-                charIndex++;
-                setTimeout(afficherCompétence, 100);  // Temps entre chaque lettre
-            } else {
-                typing = false;
-                setTimeout(afficherCompétence, 2000);  // Temps d'attente avant de commencer l'effacement
-            }
-        } else {
-            if (charIndex > 0) {
-                competencesElement.textContent = competences[index].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(afficherCompétence, 100);  // Temps entre chaque lettre effacée
-            } else {
-                typing = true;
-                index = (index + 1) % competences.length;  // Passer au langage suivant
-                setTimeout(afficherCompétence, 500);  // Petit délai avant de commencer à écrire le langage suivant
-            }
-        }
-    }
-
-    afficherCompétence();
+// Boutons
+btnDesktop?.addEventListener('click', () => {
+  setTheme(htmlEl.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light');
 });
+btnMobile?.addEventListener('click', () => {
+  setTheme(htmlEl.getAttribute('data-bs-theme') === 'light' ? 'dark' : 'light');
+});
+
+// --- Compétences dynamiques (typing) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const target = document.getElementById('competencesDynamic');
+  if (!target) return;
+  const items = ["HTML/CSS", "Bootstrap 5", "JavaScript", "PHP", "Laravel 10", "Java", "VBA/VB"];
+  let i = 0, j = 0, typing = true;
+
+  const tick = () => {
+    if (typing) {
+      if (j < items[i].length) {
+        target.textContent += items[i][j++];
+      } else { typing = false; setTimeout(tick, 1500); return; }
+    } else {
+      if (j > 0) {
+        target.textContent = items[i].slice(0, --j);
+      } else { typing = true; i = (i + 1) % items.length; }
+    }
+    setTimeout(tick, 80);
+  };
+  tick();
+});
+
+// --- Validation Bootstrap du formulaire de contact ---
+(() => {
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault(); event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+
+// --- Année dynamique footer ---
+document.getElementById('year').textContent = new Date().getFullYear();
